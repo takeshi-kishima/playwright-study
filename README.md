@@ -20,7 +20,7 @@ npx playwright test
 ```
 でテストが走ります。
 
-今回のコミットでpackage.jsonにも追加した。
+package.jsonにも追加した。
 ```
 npm test
 ```
