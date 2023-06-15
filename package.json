@@ -4,7 +4,8 @@
   "description": "PlaywrightでWebブラウザの自動化テストをやってみたい。",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "gene": "playwright codegen --ignore-https-errors https://localhost:8443/jenkins/login"
   },
   "keywords": [],
   "author": "",

@@ -1,18 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+test("has title", async ({ page }) => {
+  await page.goto("https://localhost:8443/jenkins/login");
+  await expect(page).toHaveTitle(/Jenkins/);
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
+test("login", async ({ page }) => {
+  await page.goto("https://localhost:8443/jenkins/login");
+  await page.locator("#j_username").fill("admin");
+  await page.locator("body > div > div > form > div:nth-child(2) > input").fill("admin");
+  await page.locator("body > div > div > form > div.submit > button").click();
+  await expect(page).toHaveURL(/jenkins/);
 });
